@@ -1,3 +1,9 @@
 # hjaw
 
-work on JDK8
+work on JDK8.
+
+build & test:
+
+```shell
+mvn clean test
+```
