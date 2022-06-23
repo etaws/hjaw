@@ -1,6 +1,60 @@
 package com.my.hjaw;
 
+import com.my.hjaw.tools.ListNode;
+
 public class SortedMerge {
+
+    public Integer[] mergeByList(Integer[] a, Integer[] b) {
+
+        if ((a.length == 0) && (b.length == 0)) {
+            return new Integer[0];
+        }
+
+        ListNode aList = ListNode.createList(a);
+        ListNode bList = ListNode.createList(b);
+
+        ListNode r = null;
+        ListNode tail = null;
+
+        while (aList != null && bList != null) {
+
+            ListNode c;
+            if (aList.val > bList.val) {
+                c = bList;
+                bList = bList.next;
+            } else {
+                c = aList;
+                aList = aList.next;
+            }
+
+            if (r == null) {
+                r = c;
+            } else {
+                tail.next = c;
+            }
+            tail = c;
+        }
+
+        ListNode c;
+        if (aList != null) {
+            c = aList;
+        } else {
+            c = bList;
+        }
+
+        while (c != null) {
+            if (r == null) {
+                r = c;
+            } else {
+                tail.next = c;
+            }
+            tail = c;
+
+            c = c.next;
+        }
+
+        return ListNode.showList(r);
+    }
 
     public void merge(int[] a, int[] b) {
 
