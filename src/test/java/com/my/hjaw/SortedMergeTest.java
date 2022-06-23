@@ -40,4 +40,11 @@ public class SortedMergeTest {
 
         assertArrayEquals(new int[]{0, 0}, a);
     }
+
+    @Test
+    public void testOnList() {
+        Integer[] c = new SortedMerge().mergeByList(new Integer[]{3, 9, 20}, new Integer[]{1, 2});
+
+        assertArrayEquals(new Integer[]{1, 2, 3, 9, 20}, c);
+    }
 }
