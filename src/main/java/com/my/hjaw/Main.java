@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Main implements CommandLineRunner {
     private static final String CHARSET_NAME = "UTF-8";
 
-    private static final Scanner scanner = new Scanner(new java.io.BufferedInputStream(System.in), CHARSET_NAME);
+    private static final Scanner SCANNER = new Scanner(new java.io.BufferedInputStream(System.in), CHARSET_NAME);
 
     @Override
     public void run(String... strings) {
@@ -32,7 +32,7 @@ public class Main implements CommandLineRunner {
 
     public static String readString() {
         try {
-            return scanner.next();
+            return SCANNER.next();
         } catch (NoSuchElementException e) {
             throw new NoSuchElementException("attempts to read a 'String' value from standard input, " + "but no more tokens are available");
         }

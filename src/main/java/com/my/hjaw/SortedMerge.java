@@ -100,4 +100,43 @@ public class SortedMerge {
             }
         }
     }
+
+    public Integer[] distinctList(Integer[] a) {
+
+        if (a.length == 0) {
+            return new Integer[0];
+        }
+
+        if (a.length == 1) {
+            return a;
+        }
+
+        ListNode aList = ListNode.createList(a);
+
+        int v = -1;
+        ListNode c = aList;
+
+        ListNode head = null;
+        ListNode tail = null;
+        while (c != null) {
+            if (c.val == v) {
+                c = c.next;
+                continue;
+            }
+
+            v = c.val;
+
+            if (head == null) {
+                head = c;
+            } else {
+                tail.next = c;
+            }
+
+            tail = c;
+            c = c.next;
+            tail.next = null;
+        }
+
+        return ListNode.showList(head);
+    }
 }

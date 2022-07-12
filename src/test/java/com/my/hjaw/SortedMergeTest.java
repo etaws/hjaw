@@ -47,4 +47,10 @@ public class SortedMergeTest {
 
         assertArrayEquals(new Integer[]{1, 2, 3, 9, 20}, c);
     }
+
+    @Test
+    public void testDistinctList() {
+        assertArrayEquals(new Integer[]{3, 9, 20}, new SortedMerge().distinctList(new Integer[]{3, 9, 20}));
+        assertArrayEquals(new Integer[]{3, 9, 20}, new SortedMerge().distinctList(new Integer[]{3, 3, 9, 9, 20}));
+    }
 }
