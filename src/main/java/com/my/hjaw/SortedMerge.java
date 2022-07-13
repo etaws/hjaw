@@ -139,4 +139,34 @@ public class SortedMerge {
 
         return ListNode.showList(head);
     }
+
+    public Integer[] reverseList(Integer[] a) {
+
+        if (a.length == 0) {
+            return new Integer[0];
+        }
+
+        if (a.length == 1) {
+            return a;
+        }
+
+        ListNode c = ListNode.createList(a);
+
+        ListNode head = null;
+        while (c != null) {
+
+            if (head == null) {
+                head = c;
+                c = c.next;
+                head.next = null;
+            } else {
+                ListNode t = head;
+                head = c;
+                c = c.next;
+                head.next = t;
+            }
+        }
+
+        return ListNode.showList(head);
+    }
 }

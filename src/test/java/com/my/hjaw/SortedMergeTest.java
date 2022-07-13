@@ -53,4 +53,11 @@ public class SortedMergeTest {
         assertArrayEquals(new Integer[]{3, 9, 20}, new SortedMerge().distinctList(new Integer[]{3, 9, 20}));
         assertArrayEquals(new Integer[]{3, 9, 20}, new SortedMerge().distinctList(new Integer[]{3, 3, 9, 9, 20}));
     }
+
+    @Test
+    public void testReverseList() {
+        assertArrayEquals(new Integer[]{3}, new SortedMerge().reverseList(new Integer[]{3}));
+        assertArrayEquals(new Integer[]{3, 9, 20}, new SortedMerge().reverseList(new Integer[]{20, 9, 3}));
+    }
+
 }
