@@ -2,6 +2,9 @@ package com.my.hjaw;
 
 import com.my.hjaw.tools.ListNode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SortedMerge {
 
     public Integer[] mergeByList(Integer[] a, Integer[] b) {
@@ -168,5 +171,37 @@ public class SortedMerge {
         }
 
         return ListNode.showList(head);
+    }
+
+    public Integer[] midList(Integer[] a) {
+
+        if (a.length == 0) {
+            return new Integer[0];
+        }
+
+        if (a.length == 1) {
+            return a;
+        }
+
+        if (a.length == 2) {
+            List<Integer> r = new ArrayList<>();
+            r.add(a[1]);
+            return r.toArray(r.toArray(new Integer[0]));
+        }
+
+        ListNode slow = ListNode.createList(a);
+        ListNode fast = slow;
+
+        while (fast.next != null) {
+            slow = slow.next;
+
+            fast = fast.next;
+            if (fast.next != null) {
+                fast = fast.next;
+            }
+        }
+
+        slow.next = null;
+        return ListNode.showList(slow);
     }
 }

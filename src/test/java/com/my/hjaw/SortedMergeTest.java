@@ -60,4 +60,12 @@ public class SortedMergeTest {
         assertArrayEquals(new Integer[]{3, 9, 20}, new SortedMerge().reverseList(new Integer[]{20, 9, 3}));
     }
 
+    @Test
+    public void testMidList() {
+        assertArrayEquals(new Integer[]{3}, new SortedMerge().midList(new Integer[]{3}));
+        assertArrayEquals(new Integer[]{4}, new SortedMerge().midList(new Integer[]{3, 4}));
+        assertArrayEquals(new Integer[]{9}, new SortedMerge().midList(new Integer[]{3, 9, 20}));
+        assertArrayEquals(new Integer[]{10}, new SortedMerge().midList(new Integer[]{3, 9, 10, 20}));
+    }
+
 }
