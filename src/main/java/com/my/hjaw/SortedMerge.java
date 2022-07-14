@@ -204,4 +204,36 @@ public class SortedMerge {
         slow.next = null;
         return ListNode.showList(slow);
     }
+
+    public Integer[] kTailList(Integer[] a, int k) {
+
+        if (a.length == 0) {
+            return new Integer[0];
+        }
+
+        if (k < 1) {
+            return new Integer[0];
+        }
+
+        ListNode head = ListNode.createList(a);
+        ListNode tail = head.next;
+        for (int i = 1; i < k; i++) {
+            if (tail == null) {
+                return new Integer[0];
+
+            }
+
+            tail = tail.next;
+        }
+
+        while (tail != null) {
+            tail = tail.next;
+            head = head.next;
+        }
+
+        head.next = null;
+        return ListNode.showList(head);
+    }
+
+
 }
