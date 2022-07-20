@@ -34,4 +34,19 @@ public class OnTreeTest {
             System.out.printf(" " + show);
         }
     }
+
+    @Test
+    public void testPost() {
+        Integer[] vals = new Integer[]{7, 9, 8, 5, 10, null, 12, 6, null, 13, null};
+        Integer[] expects = new Integer[]{6, 5, 13, 10, 9, 12, 8, 7};
+
+        Integer[] shows = new OnTree().post(vals);
+
+        assertArrayEquals(shows, expects);
+
+        System.out.println("tree size: " + shows.length);
+        for (Integer show : shows) {
+            System.out.printf(" " + show);
+        }
+    }
 }
