@@ -39,7 +39,7 @@ public class TreeNode {
         return root;
     }
 
-    public static Integer[] showTree(TreeNode root, int length) {
+    public static Integer[] showTree(TreeNode root) {
 
         assert root != null;
 
@@ -49,10 +49,7 @@ public class TreeNode {
 
         queue.add(root);
 
-        for (int i = 0; i < length; ++i) {
-            if (queue.isEmpty()) {
-                break;
-            }
+        while (!queue.isEmpty()) {
 
             TreeNode node = queue.removeFirst();
             if (node != null) {

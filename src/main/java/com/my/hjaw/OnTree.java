@@ -153,4 +153,38 @@ public class OnTree {
 
         return height;
     }
+
+    public Integer[] flop(Integer[] vals) {
+
+        ArrayList<Integer> ret = new ArrayList<>();
+
+        if (vals.length == 0) {
+            return ret.toArray(new Integer[0]);
+        }
+
+        TreeNode root = TreeNode.createTree(vals);
+        TreeNode result = realFlop(root);
+
+        return TreeNode.showTree(result);
+    }
+
+    public TreeNode realFlop(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+
+        if (root.left != null) {
+            realFlop(root.left);
+        }
+
+        if (root.right != null) {
+            realFlop(root.right);
+        }
+
+        TreeNode t = root.left;
+        root.left = root.right;
+        root.right = t;
+
+        return root;
+    }
 }

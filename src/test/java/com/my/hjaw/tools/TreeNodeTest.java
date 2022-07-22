@@ -14,7 +14,7 @@ public class TreeNodeTest {
 
         assertNotNull(root);
 
-        Integer[] shows = TreeNode.showTree(root, vals.length);
+        Integer[] shows = TreeNode.showTree(root);
 
         assertNotNull(shows);
 
@@ -34,7 +34,7 @@ public class TreeNodeTest {
 
         assertNotNull(root);
 
-        Integer[] shows = TreeNode.showTree(root, vals.length);
+        Integer[] shows = TreeNode.showTree(root);
 
         assertNotNull(shows);
 

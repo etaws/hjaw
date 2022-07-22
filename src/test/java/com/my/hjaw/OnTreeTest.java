@@ -57,4 +57,14 @@ public class OnTreeTest {
         Assert.assertEquals(4, new OnTree().height(vals));
     }
 
+    @Test
+    public void testFlop() {
+        Integer[] vals = new Integer[]{7, 9, 8, 5, 10, null, 12, 6, null, 13, null};
+        Integer[] results = new OnTree().flop(vals);
+
+        System.out.println("tree size: " + results.length);
+        for (Integer show : results) {
+            System.out.printf(" " + show);
+        }
+    }
 }
