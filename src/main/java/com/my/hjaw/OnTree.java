@@ -101,7 +101,7 @@ public class OnTree {
                 ret.add(node.val);
                 pre = node;
                 node = null;
-            }  else {
+            } else {
                 pre = null;
                 stack.add(node);
                 node = node.right;
@@ -109,5 +109,48 @@ public class OnTree {
         }
 
         return ret.toArray(new Integer[0]);
+    }
+
+    int height(Integer[] vals) {
+
+        if (vals.length == 0) {
+            return 0;
+        }
+
+        TreeNode root = TreeNode.createTree(vals);
+
+        int height = 0;
+
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+
+        int expectSize = 1;
+        int size = 0;
+        int nextSize = 0;
+
+        while (!queue.isEmpty()) {
+
+            TreeNode node = queue.removeFirst();
+
+            if (node.left != null) {
+                queue.add(node.left);
+                nextSize++;
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+                nextSize++;
+            }
+
+            size++;
+
+            if (size == expectSize) {
+                height++;
+                size = 0;
+                expectSize = nextSize;
+                nextSize = 0;
+            }
+        }
+
+        return height;
     }
 }

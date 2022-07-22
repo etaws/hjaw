@@ -1,5 +1,6 @@
 package com.my.hjaw;
 
+import org.junit.Assert;
 import static org.junit.Assert.assertArrayEquals;
 import org.junit.Test;
 
@@ -49,4 +50,11 @@ public class OnTreeTest {
             System.out.printf(" " + show);
         }
     }
+
+    @Test
+    public void testHeight() {
+        Integer[] vals = new Integer[]{7, 9, 8, 5, 10, null, 12, 6, null, 13, null};
+        Assert.assertEquals(4, new OnTree().height(vals));
+    }
+
 }
